@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/widgets/button.dart';
+import 'package:toonflix/widgets/currency_card.dart';
 
 void main() {
   runApp(const App());
@@ -84,7 +85,7 @@ class App extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 100,
+                height: 60,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -110,53 +111,27 @@ class App extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1F2123),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Euro',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              const Text(
-                                '6 428',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              const SizedBox(width: 10),
-                              Text(
-                                'EUR',
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.7),
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+              CurrencyCard(
+                currency: 'Euro',
+                amount: '6 428',
+                code: 'EUR',
+                icon: Icons.euro,
+                order: 1,
+              ),
+              CurrencyCard(
+                currency: 'Dollar',
+                amount: '55 622',
+                code: 'USD',
+                icon: Icons.attach_money_outlined,
+                order: 2,
+                isInverted: true,
+              ),
+              CurrencyCard(
+                currency: 'Rupee',
+                amount: '28 981',
+                code: 'INR',
+                order: 3,
+                icon: Icons.currency_rupee,
               ),
             ]),
           )),
